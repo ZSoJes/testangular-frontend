@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+html, body{
+    height: 100%;
+  }
+  /* You can add global styles to this file, and also import other style files */
+ul {
+    list-style-type: none;
+    padding: 0;
+    padding-left: 15px;
+    margin: 0;
+}
+.ul-footer>li>a, .ul-footer>li{
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+#footer{
+    /* */
+}
+#header{
+    padding: 15px 40px;
+}

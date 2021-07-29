@@ -1,0 +1,48 @@
+<div *ngIf="crud_operacion.is_visible" class="mb-3 form-horizontal">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" class="form-control" [(ngModel)]="current_cliente.nombre">
+    </div>
+    <div class="form-group">
+        <label for="apellido_paterno">Apellido paterno</label>
+        <input id="apellido_paterno" type="text" class="form-control" [(ngModel)]="current_cliente.apellido_paterno">
+    </div>
+    <div class="form-group">
+        <label for="apellido_materno">Apellido materno</label>
+        <input id="apellido_materno" type="text" class="form-control" [(ngModel)]="current_cliente.apellido_materno">
+    </div>
+    <hr>
+    <button class="btn btn-success" (click)="save()">Guardar</button>
+    <button class="btn btn-danger mx-4" (click)="crud_operacion.is_visible=false">Cancelar</button>
+</div>
+
+<div class="panel-body">
+    <table class="table table-dark table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>
+                    <button class="btn btn-success" (click)="new()">Nuevo</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of data">
+                <td>{{ row.id }}</td>
+                <td>{{ row.nombre }}</td>
+                <td>{{ row.apellido_paterno + " " + row.apellido_materno}}</td>
+                <td style="text-align: right;">
+                    <div *ngIf="!confirm">
+                        <button class="btn btn-danger" (click)="confirm = true">Eliminar</button>
+                    </div>
+                    <div *ngIf="confirm">
+                        <button class="btn btn-success" (click)="delete((row.id).toString())">Confirmar</button>
+                        <button class="btn btn-warning mx-3" (click)="confirm = false">Cancelar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
